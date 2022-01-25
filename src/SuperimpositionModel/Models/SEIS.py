@@ -131,7 +131,7 @@ class SEIS:
         for feature in self._g2.keys():
             if self._g2[feature]["size"]>2:
                 for node in self._g2[feature]["nodes"]:
-                    if self.node_dict[node] == 0 and self.HO_condition(self._g2[feature]["size"] , self._g2[feature]["infected"], 0.3) and random.uniform(0, 1) < self.HO_probability(self.self._g2[feature]["size"] , self._g2[feature]["infected"], 0.3):
+                    if self.node_dict[node] == 0 and self.HO_condition(self._g2[feature]["size"] , self._g2[feature]["infected"]) and random.uniform(0, 1) < self.HO_probability(self._g2[feature]["size"] , self._g2[feature]["infected"]):
                         self.new_exposed_list.add(node)
         
 
