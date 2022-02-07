@@ -4,6 +4,7 @@ class ModelConfig:
         self.config = {
             "beta1" : 0,
             "beta2" : 0,
+            "alpha" : 0,
             "initial_infected": 0,
             "recovery_prob": 0,
             "Threshold" : 0,
@@ -17,10 +18,10 @@ class ModelConfig:
         }
     
     def add_model_parameter(self , param , value):
-        if param not in ["beta1" , "beta2" ,"initial_infected" ,"recovery_prob","number_of_groups" ,"Threshold" ,"diffusion_model" , "intersection_size" ,  "intersection_probability" , "HO_prapagation_mechanism" , "HO_probability" , "HO_condition" , "HO_node_lists"]:
+        if param not in ["beta1" , "beta2" ,"initial_infected" , 'alpha' ,"recovery_prob","number_of_groups" ,"Threshold" ,"diffusion_model" , "intersection_size" ,  "intersection_probability" , "HO_prapagation_mechanism" , "HO_probability" , "HO_condition" , "HO_node_lists"]:
             raise ValueError("Parameter name not correct.")
         
-        if param in ["beta1" , "beta2" ,"initial_infected" ,"recovery_prob" ,"Threshold"] and (value <0 or value>1):
+        if param in ["beta1" , "beta2" ,"initial_infected" ,"recovery_prob" ,"Threshold" , 'alpha'] and (value <0 or value>1):
             raise ValueError("value should be in range of 0 to 1.")
 
         if param == "diffusion_model" and value not in ["SIS" , "SIRS" , "SIR"]:
